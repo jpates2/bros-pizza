@@ -1,0 +1,44 @@
+.header-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header__border-pattern {
+  height: 80px;
+  background-color: white;
+  background-image:
+    linear-gradient(45deg, #DE1A1A 25%, transparent 25%,
+      transparent 75%, #DE1A1A 75%, #DE1A1A),
+    linear-gradient(45deg, #DE1A1A 25%, transparent 25%,
+      transparent 75%, #DE1A1A 75%, #DE1A1A);
+  background-size: 80px 80px;
+  background-position: 0 0, 40px 40px;
+}
+
+.header__border-title {
+  font-size: 120px;
+}
+
+/* #F8F8F8 seasalt
+#F2E7C9 parchment
+#F7F0F0 snow
+#FFF8F0 floral white
+#FDFFFC baby powder
+#FBF7F4 isabeline
+
+#D64045 poppy
+#C81D25 #C42021 fire engine red
+#D7263D crimson
+#E55934 cinnabar
+#FF101F red
+#DE1A1A rojo
+#F06543 tomato
+
+#E8998D coral pink
+#DC9E82 buff
+#C16E70 old rose
+#E28413 fulvous
+#E09F3E hyundai yellow
+#335C67 dark slate gray */
