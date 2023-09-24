@@ -1,0 +1,8 @@
+.navbar-button {
+  all: unset;
+  background-color: #DE1A1A;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 40px;
+}
