@@ -1,9 +1,9 @@
-.header-section {
+/* .header-section {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
+} */
 
 .header__border-pattern {
   height: 80px;
@@ -18,10 +18,40 @@
 }
 
 .header__border-title {
-  font-size: 120px;
+  display: flex;
+  /* grid-template-columns: 1fr 12fr 4fr; */
+  padding: 12vh 0vh;
 }
 
-/* #F8F8F8 seasalt
+.header__border-title-bros {
+  font-family: "Lilita One";
+  font-size: 6vw;
+  transform: rotate(-90deg);
+  transform-origin: 95% 22%;
+}
+
+.header__border-title-pizza {
+  font-family: "Lilita One";
+  font-size: 20vw;
+}
+
+.header__border-img {
+  height: 20vw;
+  /* align-self: center; */
+}
+
+/*
+Lilita One
+Archivo Black
+Rowdies
+Russo One
+Alfa Slab One
+Righteous
+Tourney
+Titan One
+ADLaM Display
+
+#F8F8F8 seasalt
 #F2E7C9 parchment
 #F7F0F0 snow
 #FFF8F0 floral white
