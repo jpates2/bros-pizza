@@ -1,8 +1,21 @@
-.navbar-button {
+.navbar__button {
   all: unset;
   background-color: #DE1A1A;
   color: white;
   font-size: 2rem;
   padding: 1rem 2rem;
   border-radius: 40px;
+  margin-bottom: 1rem;
+}
+
+.navbar__button:hover {
+  scale: 1.05;
+  transition: scale 0.5s;
+  cursor: pointer;
+}
+
+@media (min-width: 800px) {
+  .navbar__button {
+    margin-bottom: 0;
+  }
 }

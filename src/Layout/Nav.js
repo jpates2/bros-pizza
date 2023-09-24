@@ -3,12 +3,12 @@ import NavbarButton from "./NavbarButton";
 
 const Nav = props => {
   return (
-    <section className={classes["navbar-section"]}>
-      <div>MENU</div>
-      <div>WHO WE ARE</div>
+    <section className={classes["navbar__section"]}>
+      <div className={`${classes["navbar__link"]} ${classes["navbar__link-menu"]}`}>MENU</div>
+      <div className={`${classes["navbar__link"]} ${classes["navbar__link-who"]}`}>WHO WE ARE</div>
       <NavbarButton />
-      <div>WHERE WE ARE</div>
-      <div>BOOKINGS</div>
+      <div className={`${classes["navbar__link"]} ${classes["navbar__link-where"]}`}>WHERE WE ARE</div>
+      <div className={`${classes["navbar__link"]} ${classes["navbar__link-bookings"]}`}>BOOKINGS</div>
     </section>
   )
 }
