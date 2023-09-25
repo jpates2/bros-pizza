@@ -1,3 +1,17 @@
 .available-meals__list {
   padding: 0;
+  display: grid;
+  gap: 1rem 2rem;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+
+@media (min-width: 800px) {
+  .available-meals__list {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-flow: column;
+    max-width: 80%;
+  }
 }

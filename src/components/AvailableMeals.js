@@ -21,6 +21,12 @@ const DUMMY_MEALS = [
     name: "VEGAN",
     description: "Tomato, vegan mozzarella, basil",
     price: 8
+  },
+  {
+    id: "p4",
+    name: "MARINARA",
+    description: "Tomato, garlic, oregano",
+    price: 8
   }
 ]
 
