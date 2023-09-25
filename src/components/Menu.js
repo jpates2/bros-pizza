@@ -1,6 +1,7 @@
 import React from "react";
-
 import classes from "./Menu.module.css"
+
+import AvailableMeals from "./AvailableMeals";
 
 const Menu = () => {
   return (
@@ -11,6 +12,7 @@ const Menu = () => {
         <div className={classes["menu__tab"]}>PIZZAS</div>
         <div className={classes["menu__tab"]}>DESSERTS</div>
       </div>
+      <AvailableMeals />
     </section>
   )
 }
