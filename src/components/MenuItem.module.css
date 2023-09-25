@@ -1,0 +1,25 @@
+.menu__item {
+  list-style: none;
+  display: flex;
+  /* border: 1px solid black; */
+  position: relative;
+  max-width: 24rem;
+  padding: 1rem;
+  font-family: "Lilita One";
+}
+.menu__item-text {
+  text-align: left;
+}
+
+.menu__item-name {
+  margin: 0;
+  color: #DE1A1A;
+}
+
+.menu__item-price {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #DE1A1A;
+  font-size: 1.5rem;
+}
