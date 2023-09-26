@@ -1,0 +1,23 @@
+.who__section {
+  text-align: center;
+  margin-top: 12vh;
+}
+
+.who__header {
+  font-family: "Lilita One";
+  font-size: 3rem;
+  text-decoration: underline #DE1A1A;
+  text-decoration-thickness: 8px;
+}
+
+.who__text {
+  font-family: "Lilita One";
+  padding: 0 2rem;
+}
+
+@media (min-width: 800px) {
+  .who__text {
+    font-family: "Lilita One";
+    padding: 0 6rem;
+  }
+}
