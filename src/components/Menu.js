@@ -22,9 +22,9 @@ const Menu = (props) => {
     <section className={classes["menu__section"]}>
       <h1 className={classes["menu__header"]}>MENU</h1>
       <div className={classes["menu__tabs"]}>
-        <div onClick={starterMenuHandler} className={classes["menu__tab"]}>STARTERS</div>
-        <div onClick={pizzaMenuHandler} className={classes["menu__tab"]}>PIZZAS</div>
-        <div onClick={dessertMenuHandler} className={classes["menu__tab"]}>DESSERTS</div>
+        <div onClick={starterMenuHandler} className={menuSelection === "starterList" ? `${classes["menu__tab"]} ${classes["menu__tab-active"]}` : classes["menu__tab"]}>STARTERS</div>
+        <div onClick={pizzaMenuHandler} className={menuSelection === "pizzaList" ? `${classes["menu__tab"]} ${classes["menu__tab-active"]}` : classes["menu__tab"]}>PIZZAS</div>
+        <div onClick={dessertMenuHandler} className={menuSelection === "dessertList" ? `${classes["menu__tab"]} ${classes["menu__tab-active"]}` : classes["menu__tab"]}>DESSERTS</div>
       </div>
       <AvailableMeals menuToDisplay={menuSelection} />
     </section>

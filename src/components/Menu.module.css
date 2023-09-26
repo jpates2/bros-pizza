@@ -24,8 +24,20 @@
   font-size: 1.2rem;
 }
 
+.menu__tab-active {
+  text-decoration: underline dashed #DE1A1A;
+}
+
+.menu__tab:hover {
+  cursor: pointer;
+}
+
 @media (min-width: 800px) {
   .menu__tab {
     font-size: 2rem;
+  }
+
+  .menu__tab:hover {
+    color: #DE1A1A;
   }
 }
