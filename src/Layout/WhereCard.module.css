@@ -1,8 +1,50 @@
 .where__card {
   font-family: "Lilita One";
+  width: 80%;
+  /* min-width: 16rem; */
+  margin: 2rem auto;
+  border: 16px solid #DE1A1A;
+  padding: 4rem 1rem;
+
+  background: repeating-linear-gradient(
+  -45deg,
+  rgba(222, 26, 26, 0.15),
+  rgba(222, 26, 26, 0.15) 40px,
+  white 40px,
+  white 80px
+);
 }
 
 .where__card-title {
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  margin-top: 0;
+}
+
+.where__card-text {
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.where__card-text-bottom {
+  margin-bottom: 32px;
+}
+
+.where__card-link {
+  color: black;
+  font-size: 1.2rem;
+  text-decoration: underline #DE1A1A;
+  text-decoration-thickness: 4px;
+}
+
+.where__card-link:hover {
+  color: #DE1A1A;
+  text-decoration: none;
+}
+
+@media (min-width: 800px) {
+  .where__card {
+    width: 25%;
+    max-width: 16rem;
+  }
 }

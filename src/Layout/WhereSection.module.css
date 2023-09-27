@@ -1,6 +1,7 @@
 .where__section {
   text-align: center;
   margin-top: 12vh;
+  margin-bottom: 12vh;
 }
 
 .where__header {
@@ -12,4 +13,13 @@
 
 .where__cards-container {
   display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+@media (min-width: 800px) {
+  .where__cards-container {
+    flex-direction: row;
+  }
 }
