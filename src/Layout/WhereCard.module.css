@@ -1,18 +1,26 @@
 .where__card {
   font-family: "Lilita One";
   width: 80%;
-  /* min-width: 16rem; */
   margin: 2rem auto;
-  border: 16px solid #DE1A1A;
+  border: 20px solid #DE1A1A;
   padding: 4rem 1rem;
 
-  background: repeating-linear-gradient(
-  -45deg,
-  rgba(222, 26, 26, 0.15),
-  rgba(222, 26, 26, 0.15) 40px,
-  white 40px,
-  white 80px
-);
+  background-color: white;
+  background-image:
+    linear-gradient(45deg, rgba(222, 26, 26, 0.15) 25%, transparent 25%,
+      transparent 75%, rgba(222, 26, 26, 0.15) 75%, rgba(222, 26, 26, 0.15)),
+    linear-gradient(45deg, rgba(222, 26, 26, 0.15) 25%, transparent 25%,
+      transparent 75%, rgba(222, 26, 26, 0.15) 75%, rgba(222, 26, 26, 0.15));
+  background-size: 80px 80px;
+  background-position: 0 0, 40px 40px;
+
+  /* background: repeating-linear-gradient(
+    -45deg,
+    rgba(222, 26, 26, 0.15),
+    rgba(222, 26, 26, 0.15) 20px,
+    white 20px,
+    white 40px
+  ); */
 }
 
 .where__card-title {
@@ -44,7 +52,8 @@
 
 @media (min-width: 800px) {
   .where__card {
-    width: 25%;
+    width: 22%;
     max-width: 16rem;
+    margin: 0 auto;
   }
 }
