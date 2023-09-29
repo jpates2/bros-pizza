@@ -7,7 +7,7 @@ const AvailableMeals = (props) => {
   const [starters, setStarters] = useState([]);
   const [pizzas, setPizzas] = useState([]);
   const [desserts, setDesserts] = useState([]);
-  const [isLoading, setIsLoading] = useState();
+  const [httpError, setHttpError] = useState(false);
 
   useEffect(() => {
     const fetchMeals = async () => {
@@ -48,8 +48,18 @@ const AvailableMeals = (props) => {
       setPizzas(pizzasData);
       setDesserts(dessertsData);
     }
-    fetchMeals();
+    fetchMeals().catch((error) => {
+      setHttpError(error.message)
+    });
   }, [])
+
+  if (httpError) {
+    return (
+      <div>
+        <p className={classes["menu__error-text"]}>Error loading menu. Please refresh the page to try again.</p>
+      </div>
+    )
+  }
 
   const starterList = starters.map((meal) => (
     <MenuItem
