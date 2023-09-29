@@ -4,6 +4,7 @@ import Nav from "./Layout/Nav";
 import Menu from "./components/Menu";
 import WhoSection from "./Who/WhoSection";
 import WhereSection from "./Where/WhereSection";
+import BookingSection from "./Bookings/BookingSection";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Menu />
         <WhoSection />
         <WhereSection />
+        <BookingSection />
       </main>
     </React.Fragment>
   );

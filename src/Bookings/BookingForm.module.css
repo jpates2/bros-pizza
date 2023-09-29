@@ -1,0 +1,64 @@
+.bookings__form {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 0 4rem;
+  margin: 0 auto;
+  max-width: 20rem;
+}
+
+.bookings__form-container {
+  text-align: left;
+  position: relative;
+}
+
+.bookings__form-control {
+  font-family: "Lilita One";
+  margin-bottom: 2rem;
+}
+
+.bookings__form-control label {
+  font-size: 1.3rem;
+}
+
+.bookings__form-control input,
+.bookings__form-control select {
+  position: absolute;
+  right: 1rem;
+  border: 1px solid black;
+  border-radius: 4px;
+  height: 1.3rem;
+  font-family: "Lilita One";
+  font-size: 0.8rem;
+  width: 10rem;
+  padding: 1px 8px;
+}
+
+.bookings__form-control select {
+  height: 1.7rem;
+}
+
+.bookings__form-button {
+  all: unset;
+  font-family: "Lilita One";
+  background-color: #DE1A1A;
+  color: white;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 40px;
+  margin-top: 2rem;
+}
+
+.bookings__form-button:hover {
+  scale: 1.05;
+  transition: scale 0.5s;
+  cursor: pointer;
+}
+
+@media (min-width: 800px) {
+  .bookings__form {
+    grid-template-columns: 1fr 1fr;
+    gap: 0 4rem;
+    padding: 0 4rem;
+    max-width: 40rem;
+  }
+}

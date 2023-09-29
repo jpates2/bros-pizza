@@ -1,0 +1,15 @@
+.bookings__section {
+  border: 5px dashed #DE1A1A;
+  text-align: center;
+  padding-bottom: 3rem;
+  max-width: 60rem;
+  margin: 2rem auto;
+}
+
+.bookings__header {
+  font-family: "Lilita One";
+  font-size: 3rem;
+  text-decoration: underline #DE1A1A;
+  text-decoration-thickness: 8px;
+  margin-bottom: 4rem;
+}
