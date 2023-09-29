@@ -16,6 +16,10 @@
   color: #DE1A1A;
 }
 
+.menu__item-description {
+  padding-right: 2rem;
+}
+
 .menu__item-price {
   position: absolute;
   top: 0;

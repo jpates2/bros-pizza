@@ -8,7 +8,7 @@ const DUMMY_STARTERS = [
     id: "s1",
     name: "BRUSCHETTA",
     description: "Toasted focaccia, tomato, basil, garlic oil",
-    price: 8
+    price: 6
   },
   {
     id: "s2",
@@ -20,25 +20,25 @@ const DUMMY_STARTERS = [
     id: "s3",
     name: "VEGGIE ARANCINI",
     description: "Stuffed and fried rice balls, mushrooms, taleggio",
-    price: 8
+    price: 7
   },
   {
     id: "s4",
     name: "BURRATA",
     description: "Burrata di Puglia, marinara sauce, pesto",
-    price: 8
+    price: 10
   },
   {
     id: "s5",
     name: "PARMA HAM",
     description: "Prosciutto di Parma DOP, warm focaccia",
-    price: 8
+    price: 12
   },
   {
     id: "s6",
     name: "MEATBALLS",
     description: "Pork meatballs, marinara sauce, parmesan",
-    price: 8
+    price: 9
   }
 ]
 
@@ -110,25 +110,25 @@ const DUMMY_DESSERTS = [
     id: "d1",
     name: "TIRAMISU",
     description: "Sponge, coffee, chocolate, cream, rum",
-    price: 8
+    price: 6
   },
   {
     id: "d2",
     name: "CANNOLI",
     description: "Ricotta filling, pistachio, dark chocolate",
-    price: 8
+    price: 3
   },
   {
     id: "d3",
     name: "PROFITEROLES",
     description: "Choux pastry, cream, chocolate sauce, hazelnuts",
-    price: 8
+    price: 6
   },
   {
     id: "d4",
     name: "LEMON MERINGUE PIE",
     description: "Sweet pastry, lemon curd, whipped meringue",
-    price: 8
+    price: 6
   }
 ]
 
