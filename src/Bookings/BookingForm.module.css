@@ -1,7 +1,7 @@
 .bookings__form {
   display: grid;
   grid-template-columns: 1fr;
-  padding: 0 4rem;
+  padding: 0 3rem;
   margin: 0 auto;
   max-width: 20rem;
 }
@@ -24,7 +24,8 @@
 .bookings__form-control select {
   position: absolute;
   right: 1rem;
-  border: 1px solid black;
+  border-width: 1px;
+  border-style: solid;
   border-radius: 4px;
   height: 1.3rem;
   font-family: "Lilita One";
@@ -35,6 +36,10 @@
 
 .bookings__form-control select {
   height: 1.7rem;
+}
+
+.bookings__form-invalid {
+  border-color: #DE1A1A;
 }
 
 .bookings__form-button {

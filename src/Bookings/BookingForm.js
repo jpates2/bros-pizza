@@ -1,14 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./BookingForm.module.css";
 
 const BookingForm = () => {
+  const [enteredName, setEnteredName] = useState("");
+  const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
+  const [enteredNameTouched, setEnteredNameTouched] = useState(false);
+
+  const nameInputChangeHandler = (event) => {
+    setEnteredName(event.target.value);
+  }
+
+  const formSubmitHandler = (event) => {
+    event.preventDefault();
+    setEnteredNameTouched(true);
+
+    if (enteredName.trim() === "") {
+      setEnteredNameIsValid(false);
+      return;
+    }
+
+    setEnteredNameIsValid(true);
+
+    setEnteredName("");
+  }
+
+  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
+  const nameInputClasses = nameInputIsInvalid ? `${classes["bookings__form-invalid"]}` : "";
+
   return (
-    <form>
+    <form onSubmit={formSubmitHandler}>
       <div className={classes["bookings__form"]}>
         <div className={classes["bookings__form-container"]}>
           <div className={classes["bookings__form-control"]}>
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" />
+            <input type="text" id="name" value={enteredName} onChange={nameInputChangeHandler} className={nameInputClasses} />
           </div>
           <div className={classes["bookings__form-control"]}>
             <label htmlFor="number">Number</label>
