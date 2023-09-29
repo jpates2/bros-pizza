@@ -18,6 +18,28 @@ const Menu = (props) => {
     setMenuSelection("dessertList");
   }
 
+  // const [startersSelected, setStartersSelected] = useState(false);
+  // const [pizzasSelected, setPizzasSelected] = useState(true);
+  // const [dessertsSelected, setDessertsSelected] = useState(false);
+
+  //   const starterMenuHandler = () => {
+  //     startersSelected(true);
+  //     pizzasSelected(false);
+  //     dessertsSelected(false);
+  // }
+
+  // const pizzaMenuHandler = () => {
+  //   startersSelected(false);
+  //   pizzasSelected(true);
+  //   dessertsSelected(false);
+  // }
+
+  // const dessertMenuHandler = () => {
+  //   startersSelected(false);
+  //   pizzasSelected(false);
+  //   dessertsSelected(true);
+  // }
+
   return (
     <section className={classes["menu__section"]}>
       <h1 className={classes["menu__header"]}>MENU</h1>

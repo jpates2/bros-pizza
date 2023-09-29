@@ -1,139 +1,57 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./AvailableMeals.module.css";
 
 import MenuItem from "./MenuItem";
 
-const DUMMY_STARTERS = [
-  {
-    id: "s1",
-    name: "BRUSCHETTA",
-    description: "Toasted focaccia, tomato, basil, garlic oil",
-    price: 6
-  },
-  {
-    id: "s2",
-    name: "MEATY ARANCINI",
-    description: "Stuffed and fried rice balls, beef ragu, parmesan",
-    price: 8
-  },
-  {
-    id: "s3",
-    name: "VEGGIE ARANCINI",
-    description: "Stuffed and fried rice balls, mushrooms, taleggio",
-    price: 7
-  },
-  {
-    id: "s4",
-    name: "BURRATA",
-    description: "Burrata di Puglia, marinara sauce, pesto",
-    price: 10
-  },
-  {
-    id: "s5",
-    name: "PARMA HAM",
-    description: "Prosciutto di Parma DOP, warm focaccia",
-    price: 12
-  },
-  {
-    id: "s6",
-    name: "MEATBALLS",
-    description: "Pork meatballs, marinara sauce, parmesan",
-    price: 9
-  }
-]
-
-const DUMMY_PIZZAS = [
-  {
-    id: "p1",
-    name: "MARINARA",
-    description: "Tomato, garlic, oregano",
-    price: 6
-  },
-  {
-    id: "p2",
-    name: "MARGHERITA",
-    description: "Tomato, mozzarella, basil",
-    price: 8
-  },
-  {
-    id: "p3",
-    name: "PEPPERONI",
-    description: "Tomato, mozzarella, pepperoni",
-    price: 10
-  },
-  {
-    id: "p4",
-    name: "NDUJA",
-    description: "Tomato, mozzarella, nduja, salami, honey",
-    price: 11
-  },
-  {
-    id: "p5",
-    name: "AUBERGINE PARM",
-    description: "Tomato, mozzarella, aubergine, parmesan, breadcrumbs",
-    price: 10
-  },
-  {
-    id: "p6",
-    name: "PARMA",
-    description: "Tomato, mozzarella, parma ham, rocket, parmesan",
-    price: 12
-  },
-  {
-    id: "p7",
-    name: "BIANCA",
-    description: "Ricotta, mozzarella, garlic, oregano",
-    price: 11
-  },
-  {
-    id: "p8",
-    name: "BUFFALO",
-    description: "Tomato, buffalo mozzarella, sundried tomatoes, pesto",
-    price: 14
-  },
-  {
-    id: "p9",
-    name: "VEGANDUJA",
-    description: "Tomato, vegan mozzarella, vegan nduja, mushrooms",
-    price: 10
-  },
-  {
-    id: "p10",
-    name: "PARMA",
-    description: "Tomato, vegan mozzarella, roasted broccoli, charred aubergine, caramalised onions",
-    price: 8
-  },
-]
-
-const DUMMY_DESSERTS = [
-  {
-    id: "d1",
-    name: "TIRAMISU",
-    description: "Sponge, coffee, chocolate, cream, rum",
-    price: 6
-  },
-  {
-    id: "d2",
-    name: "CANNOLI",
-    description: "Ricotta filling, pistachio, dark chocolate",
-    price: 3
-  },
-  {
-    id: "d3",
-    name: "PROFITEROLES",
-    description: "Choux pastry, cream, chocolate sauce, hazelnuts",
-    price: 6
-  },
-  {
-    id: "d4",
-    name: "LEMON MERINGUE PIE",
-    description: "Sweet pastry, lemon curd, whipped meringue",
-    price: 6
-  }
-]
-
 const AvailableMeals = (props) => {
-  const starterList = DUMMY_STARTERS.map((meal) => (
+  const [starters, setStarters] = useState([]);
+  const [pizzas, setPizzas] = useState([]);
+  const [desserts, setDesserts] = useState([]);
+  const [isLoading, setIsLoading] = useState();
+
+  useEffect(() => {
+    const fetchMeals = async () => {
+      const response = await fetch("https://bros-pizza-2757a-default-rtdb.europe-west1.firebasedatabase.app/meals.json");
+      const responseData = await response.json();
+
+      const pizzasData = [];
+      const startersData = [];
+      const dessertsData = [];
+
+      for (const key in responseData.starters) {
+        startersData.push({
+          id: key,
+          name: responseData.starters[key].name,
+          description: responseData.starters[key].description,
+          price: responseData.starters[key].price
+        })
+      }
+
+      for (const key in responseData.pizzas) {
+        pizzasData.push({
+          id: key,
+          name: responseData.pizzas[key].name,
+          description: responseData.pizzas[key].description,
+          price: responseData.pizzas[key].price
+        })
+      }
+
+      for (const key in responseData.desserts) {
+        dessertsData.push({
+          id: key,
+          name: responseData.desserts[key].name,
+          description: responseData.desserts[key].description,
+          price: responseData.desserts[key].price
+        })
+      }
+      setStarters(startersData);
+      setPizzas(pizzasData);
+      setDesserts(dessertsData);
+    }
+    fetchMeals();
+  }, [])
+
+  const starterList = starters.map((meal) => (
     <MenuItem
       id={meal.id}
       key={meal.id}
@@ -143,7 +61,7 @@ const AvailableMeals = (props) => {
     />
   ))
 
-  const pizzaList = DUMMY_PIZZAS.map((meal) => (
+  const pizzaList = pizzas.map((meal) => (
     <MenuItem
       id={meal.id}
       key={meal.id}
@@ -153,7 +71,7 @@ const AvailableMeals = (props) => {
     />
   ))
 
-  const dessertList = DUMMY_DESSERTS.map((meal) => (
+  const dessertList = desserts.map((meal) => (
     <MenuItem
       id={meal.id}
       key={meal.id}
