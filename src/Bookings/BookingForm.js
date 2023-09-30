@@ -3,28 +3,40 @@ import classes from "./BookingForm.module.css";
 
 const BookingForm = () => {
   const [enteredName, setEnteredName] = useState("");
-  const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
+  const [formSubmit, setFormSubmit] = useState(false);
+
+  const enteredNameIsValid = enteredName.trim() !== "";
+  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
+
+  let formIsValid;
+
+  if (enteredNameIsValid) {
+    formIsValid = true;
+  }
 
   const nameInputChangeHandler = (event) => {
     setEnteredName(event.target.value);
   }
 
+  const nameInputBlurHandler = (event) => {
+    setEnteredNameTouched(true);
+  }
+
   const formSubmitHandler = (event) => {
     event.preventDefault();
     setEnteredNameTouched(true);
+    setFormSubmit(true);
 
-    if (enteredName.trim() === "") {
-      setEnteredNameIsValid(false);
+    if (!formIsValid) {
       return;
     }
 
-    setEnteredNameIsValid(true);
-
     setEnteredName("");
+    setEnteredNameTouched(false);
+    setFormSubmit(false);
   }
 
-  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
   const nameInputClasses = nameInputIsInvalid ? `${classes["bookings__form-invalid"]}` : "";
 
   return (
@@ -33,7 +45,7 @@ const BookingForm = () => {
         <div className={classes["bookings__form-container"]}>
           <div className={classes["bookings__form-control"]}>
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" value={enteredName} onChange={nameInputChangeHandler} className={nameInputClasses} />
+            <input type="text" id="name" value={enteredName} onChange={nameInputChangeHandler} onBlur={nameInputBlurHandler} className={nameInputClasses} />
           </div>
           <div className={classes["bookings__form-control"]}>
             <label htmlFor="number">Number</label>
@@ -66,6 +78,7 @@ const BookingForm = () => {
         <div className={classes["bookings__form-button-container"]}>
           <button className={classes["bookings__form-button"]}>BOOK NOW</button>
         </div>
+      {formSubmit && <p>Please amend highlighted fields</p>}
     </form>
   )
 }
