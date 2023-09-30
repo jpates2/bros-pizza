@@ -78,7 +78,7 @@ const BookingForm = () => {
         <div className={classes["bookings__form-button-container"]}>
           <button className={classes["bookings__form-button"]}>BOOK NOW</button>
         </div>
-      {formSubmit && <p>Please amend highlighted fields</p>}
+      {formSubmit && <p className={classes["bookings__form-error"]}>Please amend highlighted fields</p>}
     </form>
   )
 }
