@@ -33,6 +33,15 @@ const BookingForm = () => {
   } = useInput(value => value.includes("@") && value.length > 6)
 
   const {
+    value: enteredLocation,
+    isValid: enteredLocationIsValid,
+    hasError: locationInputHasError,
+    inputChangeHandler: locationChangeHandler,
+    inputBlurHandler: locationBlurHandler,
+    resetInput: resetLocationInput
+  } = useInput(value => value.trim() !== "")
+
+  const {
     value: enteredDate,
     isValid: enteredDateIsValid,
     hasError: dateInputHasError,
@@ -56,10 +65,6 @@ const BookingForm = () => {
     formIsValid = true;
   }
 
-  // const dateCheckBlurHandler = (event) => {
-  //   console.log(typeof(event.target.value));
-  // }
-
   const formSubmitHandler = (event) => {
     event.preventDefault();
     setFormSubmit(true);
@@ -68,6 +73,7 @@ const BookingForm = () => {
       return;
     }
 
+    submitOrderHandler();
     resetNameInput();
     resetNumberInput();
     resetEmailInput();
@@ -76,9 +82,24 @@ const BookingForm = () => {
     setFormSubmit(false);
   }
 
+  const submitOrderHandler = async () => {
+    await fetch("https://bros-pizza-2757a-default-rtdb.europe-west1.firebasedatabase.app/bookings.json", {
+      method: "POST",
+      body: JSON.stringify({
+        enteredName,
+        enteredNumber,
+        enteredEmail,
+        enteredLocation,
+        enteredDate,
+        enteredTime
+      })
+    })
+  }
+
   const nameInputClasses = nameInputHasError ? `${classes["bookings__form-invalid"]}` : "";
   const numberInputClasses = numberInputHasError ? `${classes["bookings__form-invalid"]}` : "";
   const emailInputClasses = emailInputHasError ? `${classes["bookings__form-invalid"]}` : "";
+  const locationInputClasses = locationInputHasError ? `${classes["bookings__form-invalid"]}` : "";
   const dateInputClasses = dateInputHasError ? `${classes["bookings__form-invalid"]}` : "";
   const timeInputClasses = timeInputHasError ? `${classes["bookings__form-invalid"]}` : "";
 
@@ -102,7 +123,7 @@ const BookingForm = () => {
         <div className={classes["bookings__form-container"]}>
           <div className={classes["bookings__form-control"]}>
             <label htmlFor="location">Location</label>
-            <select type="text" id="location">
+            <select type="text" id="location" value={enteredLocation} onChange={locationChangeHandler} onBlur={locationBlurHandler} className={locationInputClasses}>
               <option value="balham">Balham</option>
               <option value="barbican">Barbican</option>
               <option value="wapping">Wapping</option>
