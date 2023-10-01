@@ -1,43 +1,86 @@
 import React, { useState } from "react";
 import classes from "./BookingForm.module.css";
+import useInput from "../hooks/use-input";
 
 const BookingForm = () => {
-  const [enteredName, setEnteredName] = useState("");
-  const [enteredNameTouched, setEnteredNameTouched] = useState(false);
   const [formSubmit, setFormSubmit] = useState(false);
 
-  const enteredNameIsValid = enteredName.trim() !== "";
-  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
+  const {
+    value: enteredName,
+    isValid: enteredNameIsValid,
+    hasError: nameInputHasError,
+    inputChangeHandler: nameChangeHandler,
+    inputBlurHandler: nameBlurHandler,
+    resetInput: resetNameInput
+  } = useInput(value => value.trim() !== "")
+
+  const {
+    value: enteredNumber,
+    isValid: enteredNumberIsValid,
+    hasError: numberInputHasError,
+    inputChangeHandler: numberChangeHandler,
+    inputBlurHandler: numberBlurHandler,
+    resetInput: resetNumberInput
+  } = useInput(value => value.trim().length > 8)
+
+  const {
+    value: enteredEmail,
+    isValid: enteredEmailIsValid,
+    hasError: emailInputHasError,
+    inputChangeHandler: emailChangeHandler,
+    inputBlurHandler: emailBlurHandler,
+    resetInput: resetEmailInput
+  } = useInput(value => value.includes("@") && value.length > 6)
+
+  const {
+    value: enteredDate,
+    isValid: enteredDateIsValid,
+    hasError: dateInputHasError,
+    inputChangeHandler: dateChangeHandler,
+    inputBlurHandler: dateBlurHandler,
+    resetInput: resetDateInput
+  } = useInput(value => value.trim() !== "")
+
+  const {
+    value: enteredTime,
+    isValid: enteredTimeIsValid,
+    hasError: timeInputHasError,
+    inputChangeHandler: timeChangeHandler,
+    inputBlurHandler: timeBlurHandler,
+    resetInput: resetTimeInput
+  } = useInput(value => value.trim() !== "")
 
   let formIsValid;
 
-  if (enteredNameIsValid) {
+  if (enteredNameIsValid && enteredNumberIsValid && enteredEmailIsValid && enteredDateIsValid && enteredTimeIsValid) {
     formIsValid = true;
   }
 
-  const nameInputChangeHandler = (event) => {
-    setEnteredName(event.target.value);
-  }
-
-  const nameInputBlurHandler = (event) => {
-    setEnteredNameTouched(true);
-  }
+  // const dateCheckBlurHandler = (event) => {
+  //   console.log(typeof(event.target.value));
+  // }
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
-    setEnteredNameTouched(true);
     setFormSubmit(true);
 
     if (!formIsValid) {
       return;
     }
 
-    setEnteredName("");
-    setEnteredNameTouched(false);
+    resetNameInput();
+    resetNumberInput();
+    resetEmailInput();
+    resetDateInput();
+    resetTimeInput();
     setFormSubmit(false);
   }
 
-  const nameInputClasses = nameInputIsInvalid ? `${classes["bookings__form-invalid"]}` : "";
+  const nameInputClasses = nameInputHasError ? `${classes["bookings__form-invalid"]}` : "";
+  const numberInputClasses = numberInputHasError ? `${classes["bookings__form-invalid"]}` : "";
+  const emailInputClasses = emailInputHasError ? `${classes["bookings__form-invalid"]}` : "";
+  const dateInputClasses = dateInputHasError ? `${classes["bookings__form-invalid"]}` : "";
+  const timeInputClasses = timeInputHasError ? `${classes["bookings__form-invalid"]}` : "";
 
   return (
     <form onSubmit={formSubmitHandler}>
@@ -45,15 +88,15 @@ const BookingForm = () => {
         <div className={classes["bookings__form-container"]}>
           <div className={classes["bookings__form-control"]}>
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" value={enteredName} onChange={nameInputChangeHandler} onBlur={nameInputBlurHandler} className={nameInputClasses} />
+            <input type="text" id="name" value={enteredName} onChange={nameChangeHandler} onBlur={nameBlurHandler} className={nameInputClasses} />
           </div>
           <div className={classes["bookings__form-control"]}>
             <label htmlFor="number">Number</label>
-            <input type="text" id="number" />
+            <input type="text" id="number" value={enteredNumber} onChange={numberChangeHandler} onBlur={numberBlurHandler} className={numberInputClasses} />
           </div>
           <div className={classes["bookings__form-control"]}>
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" />
+            <input type="email" id="email" value={enteredEmail} onChange={emailChangeHandler} onBlur={emailBlurHandler} className={emailInputClasses} />
           </div>
         </div>
         <div className={classes["bookings__form-container"]}>
@@ -67,11 +110,11 @@ const BookingForm = () => {
           </div>
           <div className={classes["bookings__form-control"]}>
             <label htmlFor="date">Date</label>
-            <input type="date" id="date" />
+            <input type="date" id="date" value={enteredDate} onChange={dateChangeHandler} onBlur={dateBlurHandler} className={dateInputClasses} />
           </div>
           <div className={classes["bookings__form-control"]}>
             <label htmlFor="time">Time</label>
-            <input type="time" id="time" />
+            <input type="time" id="time" value={enteredTime} onChange={timeChangeHandler} onBlur={timeBlurHandler} className={timeInputClasses} />
           </div>
         </div>
       </div>
