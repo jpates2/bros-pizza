@@ -5,30 +5,22 @@ import useInput from "../hooks/use-input";
 const BookingForm = () => {
   const [formSubmit, setFormSubmit] = useState(false);
 
-  const [nameInputHasError, setNameInputHasError] = useState(false);
-  const [numberInputHasError, setNumberInputHasError] = useState(false);
-  const [emailInputHasError, setEmailInputHasError] = useState(false);
-  const [locationInputHasError, setLocationInputHasError] = useState(false);
-  const [dateInputHasError, setDateInputHasError] = useState(false);
-  const [timeInputHasError, setTimeInputHasError] = useState(false);
-
   const [successFormSubmit, setSuccessFormSubmit] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   let {
     value: enteredName,
     isValid: enteredNameIsValid,
-    // hasError: nameInputHasError,
+    hasError: nameInputHasError,
     inputChangeHandler: nameChangeHandler,
     inputBlurHandler: nameBlurHandler,
-    inputSubmitHandler: nameSubmitHandler,
     resetInput: resetNameInput
   } = useInput(value => value.trim() !== "")
 
   const {
     value: enteredNumber,
     isValid: enteredNumberIsValid,
-    // hasError: numberInputHasError,
+    hasError: numberInputHasError,
     inputChangeHandler: numberChangeHandler,
     inputBlurHandler: numberBlurHandler,
     resetInput: resetNumberInput
@@ -37,7 +29,7 @@ const BookingForm = () => {
   const {
     value: enteredEmail,
     isValid: enteredEmailIsValid,
-    // hasError: emailInputHasError,
+    hasError: emailInputHasError,
     inputChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
     resetInput: resetEmailInput
@@ -46,16 +38,16 @@ const BookingForm = () => {
   const {
     value: enteredLocation,
     isValid: enteredLocationIsValid,
-    // hasError: locationInputHasError,
+    hasError: locationInputHasError,
     inputChangeHandler: locationChangeHandler,
     inputBlurHandler: locationBlurHandler,
     resetInput: resetLocationInput
-  } = useInput(value => value.trim() !== "")
+  } = useInput(value => value != null)
 
   const {
     value: enteredDate,
     isValid: enteredDateIsValid,
-    // hasError: dateInputHasError,
+    hasError: dateInputHasError,
     inputChangeHandler: dateChangeHandler,
     inputBlurHandler: dateBlurHandler,
     resetInput: resetDateInput
@@ -64,7 +56,7 @@ const BookingForm = () => {
   const {
     value: enteredTime,
     isValid: enteredTimeIsValid,
-    // hasError: timeInputHasError,
+    hasError: timeInputHasError,
     inputChangeHandler: timeChangeHandler,
     inputBlurHandler: timeBlurHandler,
     resetInput: resetTimeInput
@@ -81,16 +73,10 @@ const BookingForm = () => {
     setFormSubmit(true);
 
     if (!formIsValid) {
-      if (!enteredNameIsValid) setNameInputHasError(true);
-      if (!enteredNumberIsValid) setNumberInputHasError(true);
-      if (!enteredEmailIsValid) setEmailInputHasError(true);
-      if (!enteredLocationIsValid) setLocationInputHasError(true);
-      if (!enteredDateIsValid) setDateInputHasError(true);
-      if (!enteredTimeIsValid) setTimeInputHasError(true);
       return;
     }
 
-    // submitOrderHandler();
+    submitOrderHandler();
     resetNameInput();
     resetNumberInput();
     resetEmailInput();
@@ -100,38 +86,37 @@ const BookingForm = () => {
     setFormSubmit(false);
   }
 
-  // const submitOrderHandler = async () => {
-  //   setIsSubmitting(true);
-  //   await fetch("https://bros-pizza-2757a-default-rtdb.europe-west1.firebasedatabase.app/bookings.json", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       enteredName,
-  //       enteredNumber,
-  //       enteredEmail,
-  //       enteredLocation,
-  //       enteredDate,
-  //       enteredTime
-  //     })
-  //   })
-  //   setIsSubmitting(false);
-  //   successFormSubmit(true);
+  const submitOrderHandler = async () => {
+    setIsSubmitting(true);
+    await fetch("https://bros-pizza-2757a-default-rtdb.europe-west1.firebasedatabase.app/bookings.json", {
+      method: "POST",
+      body: JSON.stringify({
+        enteredName,
+        enteredNumber,
+        enteredEmail,
+        enteredLocation,
+        enteredDate,
+        enteredTime
+      })
+    })
+    setIsSubmitting(false);
+    setSuccessFormSubmit(true);
+  }
 
-  // }
-
-  let nameInputClasses = nameInputHasError ? `${classes["bookings__form-invalid"]}` : "";
+  const nameInputClasses = nameInputHasError ? `${classes["bookings__form-invalid"]}` : "";
   const numberInputClasses = numberInputHasError ? `${classes["bookings__form-invalid"]}` : "";
   const emailInputClasses = emailInputHasError ? `${classes["bookings__form-invalid"]}` : "";
   const locationInputClasses = locationInputHasError ? `${classes["bookings__form-invalid"]}` : "";
   const dateInputClasses = dateInputHasError ? `${classes["bookings__form-invalid"]}` : "";
   const timeInputClasses = timeInputHasError ? `${classes["bookings__form-invalid"]}` : "";
 
-  return (
+  const formContent = (
     <form onSubmit={formSubmitHandler}>
       <div className={classes["bookings__form"]}>
         <div className={classes["bookings__form-container"]}>
           <div className={classes["bookings__form-control"]}>
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" value={enteredName} onChange={nameChangeHandler} onBlur={nameBlurHandler} onSubmit={nameSubmitHandler} className={nameInputClasses} />
+            <input type="text" id="name" value={enteredName} onChange={nameChangeHandler} onBlur={nameBlurHandler}  className={nameInputClasses} />
           </div>
           <div className={classes["bookings__form-control"]}>
             <label htmlFor="number">Number</label>
@@ -164,8 +149,24 @@ const BookingForm = () => {
         <div className={classes["bookings__form-button-container"]}>
           <button className={classes["bookings__form-button"]}>BOOK NOW</button>
         </div>
-      {formSubmit && <p className={classes["bookings__form-error"]}>Please amend highlighted fields</p>}
+      {formSubmit && <p className={classes["bookings__form-error"]}>Please enter missing fields</p>}
     </form>
+  )
+
+  const isSubmittingFormContent = (
+    <p className={classes["booking__form-response-text"]}>Sending booking...</p>
+  )
+
+  const submittedFormContent = (
+    <p className={classes["booking__form-response-text"]}>Booking sent!</p>
+  )
+
+  return (
+    <React.Fragment>
+      {!isSubmitting && !successFormSubmit && formContent}
+      {isSubmitting && isSubmittingFormContent}
+      {!isSubmitting && successFormSubmit && submittedFormContent}
+    </React.Fragment>
   )
 }
 
