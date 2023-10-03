@@ -8,7 +8,7 @@ const BookingForm = () => {
   const [successFormSubmit, setSuccessFormSubmit] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  let {
+  const {
     value: enteredName,
     isValid: enteredNameIsValid,
     hasError: nameInputHasError,
@@ -142,7 +142,7 @@ const BookingForm = () => {
           </div>
           <div className={classes["bookings__form-control"]}>
             <label htmlFor="time">Time</label>
-            <input type="time" id="time" min="1200" max="2100" value={enteredTime} onChange={timeChangeHandler} onBlur={timeBlurHandler} className={timeInputClasses} />
+            <input type="time" id="time" value={enteredTime} onChange={timeChangeHandler} onBlur={timeBlurHandler} className={timeInputClasses} />
           </div>
         </div>
       </div>
