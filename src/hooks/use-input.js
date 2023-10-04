@@ -15,6 +15,10 @@ const useInput = (validateInput) => {
     setIsTouched(true);
   }
 
+  const inputSubmitHandler = (event) => {
+    setIsTouched(true);
+  }
+
   const resetInput = () => {
     setEnteredInput("");
     setIsTouched(false);
@@ -26,6 +30,7 @@ const useInput = (validateInput) => {
     hasError,
     inputChangeHandler,
     inputBlurHandler,
+    inputSubmitHandler,
     resetInput
   }
 }

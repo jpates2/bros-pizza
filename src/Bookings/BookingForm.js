@@ -8,12 +8,13 @@ const BookingForm = () => {
   const [successFormSubmit, setSuccessFormSubmit] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const {
+  let {
     value: enteredName,
     isValid: enteredNameIsValid,
     hasError: nameInputHasError,
     inputChangeHandler: nameChangeHandler,
     inputBlurHandler: nameBlurHandler,
+    inputSubmitHandler: nameSubmitHandler,
     resetInput: resetNameInput
   } = useInput(value => value.trim() !== "")
 
@@ -23,6 +24,7 @@ const BookingForm = () => {
     hasError: numberInputHasError,
     inputChangeHandler: numberChangeHandler,
     inputBlurHandler: numberBlurHandler,
+    inputSubmitHandler: numberSubmitHandler,
     resetInput: resetNumberInput
   } = useInput(value => value.trim().length > 8)
 
@@ -32,6 +34,7 @@ const BookingForm = () => {
     hasError: emailInputHasError,
     inputChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
+    inputSubmitHandler: emailSubmitHandler,
     resetInput: resetEmailInput
   } = useInput(value => value.includes("@") && value.length > 6)
 
@@ -50,6 +53,7 @@ const BookingForm = () => {
     hasError: dateInputHasError,
     inputChangeHandler: dateChangeHandler,
     inputBlurHandler: dateBlurHandler,
+    inputSubmitHandler: dateSubmitHandler,
     resetInput: resetDateInput
   } = useInput(value => value.trim() !== "")
 
@@ -59,6 +63,7 @@ const BookingForm = () => {
     hasError: timeInputHasError,
     inputChangeHandler: timeChangeHandler,
     inputBlurHandler: timeBlurHandler,
+    inputSubmitHandler: timeSubmitHandler,
     resetInput: resetTimeInput
   } = useInput(value => value.trim() !== "")
 
@@ -71,6 +76,11 @@ const BookingForm = () => {
   const formSubmitHandler = (event) => {
     event.preventDefault();
     setFormSubmit(true);
+    nameSubmitHandler();
+    numberSubmitHandler();
+    emailSubmitHandler();
+    dateSubmitHandler();
+    timeSubmitHandler();
 
     if (!formIsValid) {
       return;
@@ -103,12 +113,14 @@ const BookingForm = () => {
     setSuccessFormSubmit(true);
   }
 
-  const nameInputClasses = nameInputHasError ? `${classes["bookings__form-invalid"]}` : "";
+  let nameInputClasses = nameInputHasError ? `${classes["bookings__form-invalid"]}` : "";
   const numberInputClasses = numberInputHasError ? `${classes["bookings__form-invalid"]}` : "";
   const emailInputClasses = emailInputHasError ? `${classes["bookings__form-invalid"]}` : "";
   const locationInputClasses = locationInputHasError ? `${classes["bookings__form-invalid"]}` : "";
   const dateInputClasses = dateInputHasError ? `${classes["bookings__form-invalid"]}` : "";
   const timeInputClasses = timeInputHasError ? `${classes["bookings__form-invalid"]}` : "";
+  console.log("valid:", enteredNameIsValid);
+  console.log("error:", nameInputHasError)
 
   const formContent = (
     <form onSubmit={formSubmitHandler}>
