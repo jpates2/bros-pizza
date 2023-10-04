@@ -1,11 +1,15 @@
 .navbar__button {
   all: unset;
   background-color: #DE1A1A;
-  color: white;
   font-size: 2rem;
   padding: 1rem 2rem;
   border-radius: 40px;
   margin-bottom: 1rem;
+}
+
+.navbar__button a {
+  color: white;
+  text-decoration: none;
 }
 
 .navbar__button:hover {
