@@ -1,24 +1,16 @@
 import React from "react";
-import Header from "./Layout/Header";
-import Nav from "./Layout/Nav";
-import Menu from "./components/Menu";
-import WhoSection from "./Who/WhoSection";
-import WhereSection from "./Where/WhereSection";
-import BookingSection from "./Bookings/BookingSection";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import HomePage from "./pages/Home";
+import OrderPage from "./pages/Order";
+
+const router = createBrowserRouter([
+  {path: "/", element: <HomePage />},
+  {path: "/order", element: <OrderPage />},
+])
 
 function App() {
-  return (
-    <React.Fragment>
-      <Header />
-      <main>
-        <Nav />
-        <Menu />
-        <WhoSection />
-        <WhereSection />
-        <BookingSection />
-      </main>
-    </React.Fragment>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
