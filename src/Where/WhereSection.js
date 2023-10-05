@@ -1,36 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./WhereSection.module.css";
 import WhereCard from "./WhereCard";
-
-const LOCATIONS = [
-  {
-    id: "l1",
-    area: "Balham",
-    street: "147 Balham High Road",
-    postcode: "SW12 9AU",
-    long: "51.4442723",
-    lat: "-0.1547179"
-  },
-  {
-    id: "l2",
-    area: "Wapping",
-    street: "41 Thomas More St",
-    postcode: "E1W 1YY",
-    long: "51.5067861",
-    lat: "-0.0718934"
-  },
-  {
-    id: "l3",
-    area: "Barbican",
-    street: "1 Bartholomew Close",
-    postcode: "EC1A 7BB",
-    long: "51.517846",
-    lat: "-0.099103"
-  }
-]
+import { useEffect } from "react";
 
 const WhereSection = () => {
-  const locationsList = LOCATIONS.map(location => (
+  const [locations, setLocations] = useState([]);
+  const [httpError, setHttpError] = useState();
+
+  useEffect(() => {
+    const fetchLocations = async () => {
+      const response = await fetch("https://bros-pizza-2757a-default-rtdb.europe-west1.firebasedatabase.app/locations.json")
+
+      if (!response.ok) {
+        throw new Error("Something went wrong, please refresh the page");
+      }
+
+      const responseData = await response.json();
+
+      const loadedLocations = [];
+
+      for (const key in responseData) {
+        loadedLocations.push({
+          id: key,
+          area: responseData[key].area,
+          street: responseData[key].street,
+          postcode: responseData[key].postcode,
+          long: responseData[key].long,
+          lat: responseData[key].lat,
+        })
+      }
+      setLocations(loadedLocations);
+    }
+
+    fetchLocations().catch(error => {
+      setHttpError(error.message);
+    })
+  }, []);
+
+  if (httpError) {
+    return <section>
+      <p className={classes["meals-error"]}>Error loading locations. Please refresh the page to try again.</p>
+    </section>
+  }
+
+  const locationsList = locations.map(location => (
     <WhereCard
       id={location.id}
       key={location.id}
