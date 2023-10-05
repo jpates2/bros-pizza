@@ -43,7 +43,7 @@ const WhereSection = () => {
   ))
 
   return (
-    <section className={classes["where__section"]}>
+    <section className={classes["where__section"]} id="where">
       <h1 className={classes["where__header"]}>WHERE WE ARE</h1>
       <div className={classes["where__cards-container"]}>
         {locationsList}

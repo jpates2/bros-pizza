@@ -4,7 +4,7 @@ import WhoSectionImages from "./WhoSectionImages";
 
 const WhoSection = () => {
   return (
-    <section className={classes["who__section"]}>
+    <section className={classes["who__section"]} id="who">
       <h1 className={classes["who__header"]}>WHO WE ARE</h1>
       <WhoSectionImages />
       <p className={classes["who__text"]}>Welcome to Bros Pizza, a slice of Italy right here in the heart of London!</p>

@@ -41,7 +41,7 @@ const Menu = (props) => {
   // }
 
   return (
-    <section className={classes["menu__section"]}>
+    <section className={classes["menu__section"]} id="menu">
       <h1 className={classes["menu__header"]}>MENU</h1>
       <div className={classes["menu__tabs"]}>
         <div onClick={starterMenuHandler} className={menuSelection === "starterList" ? `${classes["menu__tab"]} ${classes["menu__tab-active"]}` : classes["menu__tab"]}>STARTERS</div>
