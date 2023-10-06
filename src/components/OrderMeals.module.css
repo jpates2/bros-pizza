@@ -1,0 +1,19 @@
+.order-meals__list {
+  padding: 0;
+  /* display: grid;
+  gap: 1rem 2rem; */
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.ordermenu__error-text {
+  font-family: "Lilita One";
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+
+/* @media (min-width: 800px) {
+  .order-meals__list {
+    grid-template-columns: 1fr 1fr;
+  }
+} */

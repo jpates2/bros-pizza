@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import classes from "./Menu.module.css"
 
-import AvailableMeals from "./AvailableMeals";
+import OrderMeals from "./OrderMeals";
 
-const Menu = (props) => {
+const OrderMenu = (props) => {
   const [menuSelection, setMenuSelection] = useState("pizzaList");
 
   const starterMenuHandler = () => {
@@ -26,9 +26,9 @@ const Menu = (props) => {
         <div onClick={pizzaMenuHandler} className={menuSelection === "pizzaList" ? `${classes["menu__tab"]} ${classes["menu__tab-active"]}` : classes["menu__tab"]}>PIZZAS</div>
         <div onClick={dessertMenuHandler} className={menuSelection === "dessertList" ? `${classes["menu__tab"]} ${classes["menu__tab-active"]}` : classes["menu__tab"]}>DESSERTS</div>
       </div>
-      <AvailableMeals menuToDisplay={menuSelection} />
+      <OrderMeals menuToDisplay={menuSelection} />
     </section>
   )
 }
 
-export default Menu;
+export default OrderMenu;

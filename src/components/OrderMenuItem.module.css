@@ -1,0 +1,50 @@
+.order-menu__item-container {
+  list-style: none;
+  display: flex;
+  /* align-items: center; */
+  position: relative;
+  font-family: "Lilita One";
+  margin-bottom: 1rem;
+}
+
+.order-menu__item {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.order-menu__item-text {
+  text-align: left;
+}
+
+.order-menu__item-name {
+  margin: 0;
+  color: #DE1A1A;
+  text-transform: uppercase;
+}
+
+.order-menu__item-description {
+  padding-right: 2rem;
+}
+
+.order-menu__item-price {
+  /* position: absolute;
+  top: 0;
+  right: 0; */
+  color: #DE1A1A;
+  font-size: 1.5rem;
+}
+
+.order-menu__button-container {
+  position: absolute;
+  right: 0;
+}
+
+
+.order-menu__button {
+  all: unset;
+  background-color: #DE1A1A;
+  color: white;
+  padding: 0.2rem 1rem;
+  border-radius: 16px;
+}
