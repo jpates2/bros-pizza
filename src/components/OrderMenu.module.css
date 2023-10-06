@@ -1,0 +1,43 @@
+.order-menu__section {
+  border: 5px dashed #DE1A1A;
+  text-align: center;
+  padding-bottom: 3rem;
+  max-width: 60rem;
+  margin: 0 auto 4rem auto;
+}
+
+.order-menu__header {
+  font-family: "Lilita One";
+  font-size: 3rem;
+  text-decoration: underline #DE1A1A;
+  text-decoration-thickness: 8px;
+}
+
+.order-menu__tabs {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 3rem;
+}
+
+.order-menu__tab {
+  font-family: "Lilita One";
+  font-size: 1.2rem;
+}
+
+.order-menu__tab-active {
+  text-decoration: underline dashed #DE1A1A;
+}
+
+.order-menu__tab:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 800px) {
+  .order-menu__tab {
+    font-size: 2rem;
+  }
+
+  .order-menu__tab:hover {
+    color: #DE1A1A;
+  }
+}

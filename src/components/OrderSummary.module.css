@@ -1,10 +1,11 @@
 .order-summary__container {
   background-color: #DE1A1A;
   max-width: 60rem;
-  margin: 0 auto;
+  margin: 0 auto 2rem auto;
   text-align: center;
-  padding: 2rem;
+  padding: 2rem 0;
   border-radius: 16px;
+  border: 5px solid #DE1A1A;
 }
 
 .order-summary__title {
