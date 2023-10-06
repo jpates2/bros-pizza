@@ -17,6 +17,12 @@
   padding: 2rem;
 }
 
+.ordernav__back-button:hover {
+  scale: 1.05;
+  transition: scale 0.5s;
+  cursor: pointer;
+}
+
 .ordernav__back-button a {
   color: #DE1A1A;
   text-decoration: none;
