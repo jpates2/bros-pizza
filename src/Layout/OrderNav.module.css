@@ -1,0 +1,23 @@
+.ordernav__border-pattern {
+  height: 80px;
+  background-color: white;
+  background-image:
+    linear-gradient(45deg, #DE1A1A 25%, transparent 25%,
+      transparent 75%, #DE1A1A 75%, #DE1A1A),
+    linear-gradient(45deg, #DE1A1A 25%, transparent 25%,
+      transparent 75%, #DE1A1A 75%, #DE1A1A);
+  background-size: 80px 80px;
+  background-position: 0 0, 40px 40px;
+}
+
+.ordernav__back-button {
+  all: unset;
+  font-family: "Lilita One";
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.ordernav__back-button a {
+  color: #DE1A1A;
+  text-decoration: none;
+}
