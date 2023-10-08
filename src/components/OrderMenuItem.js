@@ -1,8 +1,23 @@
+import { useContext } from "react";
+
 import React from "react";
 import classes from "./OrderMenuItem.module.css"
 import OrderMenuItemForm from "./OrderMenuItemForm";
+import CartContext from "../store/cart.context";
 
 const OrderMenuItem = (props) => {
+  const cartCtx = useContext(CartContext);
+
+  const addToCartHandler = () => {
+    cartCtx.addItem({
+      id: props.id,
+      name: props.name,
+      amount: 1,
+      price: props.price
+    })
+    console.log(cartCtx);
+  }
+
   return (
     <li className={classes["order-menu__item-container"]}>
       <div className={classes["order-menu__item"]}>
@@ -14,7 +29,7 @@ const OrderMenuItem = (props) => {
           <div className={classes["order-menu__item-price"]}>{props.price}</div>
         </div>
       </div>
-      <OrderMenuItemForm />
+      <OrderMenuItemForm onAddToCart={addToCartHandler} />
     </li>
   )
 }

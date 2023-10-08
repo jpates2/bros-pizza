@@ -1,0 +1,28 @@
+.cart__container {
+  font-family: "Lilita One";
+  color: white;
+}
+
+.cart__list {
+  padding: 0;
+}
+
+.cart__list-item {
+  list-style: none;
+}
+
+.cart__button {
+  all: unset;
+  background-color: white;
+  color: #DE1A1A;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 40px;
+  margin: 4rem 0 1rem 0;
+}
+
+.cart__button:hover {
+  scale: 1.05;
+  transition: scale 0.5s;
+  cursor: pointer;
+}
