@@ -30,3 +30,7 @@
   transition: scale 0.5s;
   cursor: pointer;
 }
+
+.cart__text-empty {
+  margin-bottom: 2rem;
+}
