@@ -24,7 +24,7 @@ const OrderMenu = (props) => {
       <div className={classes["order-menu__tabs"]}>
         <div onClick={starterMenuHandler} className={menuSelection === "starterList" ? `${classes["order-menu__tab"]} ${classes["order-menu__tab-active"]}` : classes["order-menu__tab"]}>STARTERS</div>
         <div onClick={pizzaMenuHandler} className={menuSelection === "pizzaList" ? `${classes["order-menu__tab"]} ${classes["order-menu__tab-active"]}` : classes["order-menu__tab"]}>PIZZAS</div>
-        <div onClick={dessertMenuHandler} className={menuSelection === "dessertList" ? `${classes["order-menu__tab"]} ${classes["morder-enu__tab-active"]}` : classes["order-menu__tab"]}>DESSERTS</div>
+        <div onClick={dessertMenuHandler} className={menuSelection === "dessertList" ? `${classes["order-menu__tab"]} ${classes["order-menu__tab-active"]}` : classes["order-menu__tab"]}>DESSERTS</div>
       </div>
       <OrderMeals menuToDisplay={menuSelection} />
     </section>

@@ -119,8 +119,6 @@ const BookingForm = () => {
   const locationInputClasses = locationInputHasError ? `${classes["bookings__form-invalid"]}` : "";
   const dateInputClasses = dateInputHasError ? `${classes["bookings__form-invalid"]}` : "";
   const timeInputClasses = timeInputHasError ? `${classes["bookings__form-invalid"]}` : "";
-  console.log("valid:", enteredNameIsValid);
-  console.log("error:", nameInputHasError)
 
   const formContent = (
     <form onSubmit={formSubmitHandler}>
