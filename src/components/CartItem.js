@@ -8,9 +8,9 @@ const CartItem = (props) => {
       </div>
       <div className={classes["cart__list-price"]}>{(props.price * props.amount).toFixed(2)}</div>
       <div className={classes["cart__list-button-container"]}>
-        <button className={`${classes["cart__list-button"]} ${classes["cart__list-button-minus"]}`}><p>-</p></button>
+        <button onClick={props.onRemove} className={`${classes["cart__list-button"]} ${classes["cart__list-button-minus"]}`}><p>-</p></button>
         <div>{props.amount}</div>
-        <button className={classes["cart__list-button"]}>+</button>
+        <button onClick={props.onAdd} className={classes["cart__list-button"]}>+</button>
       </div>
     </li>
   )
