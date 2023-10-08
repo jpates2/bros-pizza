@@ -1,0 +1,19 @@
+
+.order-menu__button-container {
+  position: absolute;
+  right: 0;
+}
+
+.order-menu__button {
+  all: unset;
+  background-color: #DE1A1A;
+  color: white;
+  padding: 0.2rem 1rem;
+  border-radius: 16px;
+}
+
+.order-menu__button:hover {
+  scale: 1.05;
+  transition: scale 0.5s;
+  cursor: pointer;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./OrderMenuItem.module.css"
+import OrderMenuItemForm from "./OrderMenuItemForm";
 
 const OrderMenuItem = (props) => {
   return (
@@ -13,9 +14,7 @@ const OrderMenuItem = (props) => {
           <div className={classes["order-menu__item-price"]}>{props.price}</div>
         </div>
       </div>
-      <div className={classes["order-menu__button-container"]}>
-        <button className={classes["order-menu__button"]}>ADD</button>
-      </div>
+      <OrderMenuItemForm />
     </li>
   )
 }
