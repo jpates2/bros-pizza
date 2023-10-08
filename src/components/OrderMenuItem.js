@@ -15,7 +15,6 @@ const OrderMenuItem = (props) => {
       amount: 1,
       price: props.price
     })
-    console.log(cartCtx);
   }
 
   return (

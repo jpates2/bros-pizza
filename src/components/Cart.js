@@ -10,19 +10,17 @@ const Cart = () => {
   const total = `£${cartCtx.total.toFixed(2)}`;
 
   const cartItems = cartCtx.items.map(item =>
-    <CartItem key={item.id} name={item.name} amount={item.amount} price={item.price} className={classes["cart__list-item"]} />
+    <CartItem key={item.id} name={item.name} amount={item.amount} price={item.price} />
   );
-
-  console.log(cartItems);
 
   return (
     <div className={classes["cart__container"]}>
       <ul className={classes["cart__list"]}>
         {cartItems}
       </ul>
-      <div>
-        <span>TOTAL</span>
-        <span>{total}</span>
+      <div className={classes["cart__total"]}>
+        <div>TOTAL</div>
+        <div>{total}</div>
       </div>
       <div>
         <button className={classes["cart__button"]}>ORDER</button>

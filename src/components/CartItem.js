@@ -1,15 +1,17 @@
+import classes from "./CartItem.module.css";
+
 const CartItem = (props) => {
   return (
-    <li>
-      <div>
-        {props.name}
+    <li className={classes["cart__list-item"]}>
+      <div className={classes["cart__list-name"]}>
+        {props.name.toUpperCase()}
       </div>
-      <div>
-        <button>-</button>
-        {props.amount}
-        <button>+</button>
+      <div className={classes["cart__list-price"]}>{(props.price * props.amount).toFixed(2)}</div>
+      <div className={classes["cart__list-button-container"]}>
+        <button className={`${classes["cart__list-button"]} ${classes["cart__list-button-minus"]}`}><p>-</p></button>
+        <div>{props.amount}</div>
+        <button className={classes["cart__list-button"]}>+</button>
       </div>
-      <div>{props.price * props.amount}</div>
     </li>
   )
 }
