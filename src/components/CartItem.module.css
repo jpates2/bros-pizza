@@ -40,6 +40,12 @@
   margin: 0;
 }
 
+.cart__list-button:hover {
+  scale: 1.05;
+  transition: scale 0.5s;
+  cursor: pointer;
+}
+
 .cart__list-name {
   justify-self: start;
 }
