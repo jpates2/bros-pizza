@@ -4,9 +4,8 @@ import classes from "./Cart.module.css";
 import CartContext from "../store/cart.context";
 import CartItem from "./CartItem";
 
-const Cart = () => {
+const Cart = (props) => {
   const cartCtx = useContext(CartContext);
-  const [isCheckout, setIsCheckout] = useState(false);
 
   const total = `£${cartCtx.total.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
@@ -24,10 +23,6 @@ const Cart = () => {
     <CartItem key={item.id} name={item.name} amount={item.amount} price={item.price} onRemove={cartItemRemoveHandler.bind(null, item.id)} onAdd={cartItemAddHandler.bind(null, item)} />
   );
 
-  const orderHandler = () => {
-    setIsCheckout(true);
-  }
-
   if (hasItems) {
     orderRender = (
       <>
@@ -36,7 +31,7 @@ const Cart = () => {
           <div>{total}</div>
         </div>
         <div>
-          <button onClick={orderHandler} className={classes["cart__button"]}>ORDER</button>
+          <button onClick={props.onShowCheckout} className={classes["cart__button"]}>ORDER</button>
         </div>
       </>
     )

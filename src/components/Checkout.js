@@ -1,6 +1,10 @@
-const Checkout = () => {
+import Modal from "../Layout/Modal";
+
+const Checkout = (props) => {
   return (
-    <p>Checkout</p>
+    <Modal onClose={props.onClose} >
+      <div>Checkout</div>
+    </Modal>
   )
 }
 

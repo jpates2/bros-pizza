@@ -3,7 +3,7 @@ import OrderNav from "../Layout/OrderNav";
 import OrderSummary from "../components/OrderSummary";
 import OrderMenu from "../components/OrderMenu";
 import CartProvider from "../store/CartProvider";
-import Checkout from "../components/Checkout"
+import Checkout from "../components/Checkout";
 
 function OrderPage() {
   const [checkoutIsShown, setCheckoutIsShown] = useState(false);
