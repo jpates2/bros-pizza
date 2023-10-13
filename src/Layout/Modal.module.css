@@ -25,9 +25,13 @@
 
 @media (min-width: 800px) {
   .modal {
-    top: 20vh;
+    top: 10%;
     left: 14%;
-    width: 60%;
+    width: 66%;
+    max-height: 68vh;
+    overflow: scroll;
+    padding: 3%;
+
   }
 }
 

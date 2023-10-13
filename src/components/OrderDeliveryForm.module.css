@@ -1,0 +1,47 @@
+.delivery__form {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 auto;
+  max-width: 24rem;
+}
+
+.delivery__form-container {
+  text-align: left;
+  position: relative;
+}
+
+.delivery__form-control {
+  margin-bottom: 1rem;
+}
+
+.delivery__form-control label {
+  font-size: 0.8rem;
+}
+
+.delivery__form-control input {
+  position: absolute;
+  right: 0rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  height: 1.3rem;
+  font-size: 0.8rem;
+  width: 10rem;
+  padding: 1px 8px;
+}
+
+@media (min-width: 800px) {
+  .delivery__form {
+    max-width: 32rem;
+    gap: 0 4rem;
+    padding: 0 4rem;
+  }
+
+  .delivery__form-control label {
+    font-size: 1.3rem;
+  }
+
+  .delivery__form-control input {
+    width: 16rem;
+  }
+}
