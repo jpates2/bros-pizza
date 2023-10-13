@@ -1,0 +1,47 @@
+.payment__form {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 auto;
+  max-width: 24rem;
+}
+
+.payment__form-container {
+  text-align: left;
+  position: relative;
+}
+
+.payment__form-control {
+  margin-bottom: 1rem;
+}
+
+.payment__form-control label {
+  font-size: 0.8rem;
+}
+
+.payment__form-control input {
+  position: absolute;
+  right: 0rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  height: 1.3rem;
+  font-size: 0.8rem;
+  width: 10rem;
+  padding: 1px 8px;
+}
+
+@media (min-width: 800px) {
+  .payment__form {
+    max-width: 32rem;
+    gap: 0 4rem;
+    padding: 0 4rem;
+  }
+
+  .payment__form-control label {
+    font-size: 1.3rem;
+  }
+
+  .payment__form-control input {
+    width: 16rem;
+  }
+}
