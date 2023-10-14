@@ -1,8 +1,8 @@
-import React from "react";
+import React, { forwardRef, useImperativeHandle } from "react";
 import classes from "./OrderDeliveryForm.module.css";
 import useInput from "../hooks/use-input";
 
-const OrderDeliveryForm = (props) => {
+const OrderDeliveryForm = forwardRef((props, ref) => {
 
 
   const {
@@ -78,24 +78,26 @@ const OrderDeliveryForm = (props) => {
     houseNumber: enteredHouse,
     street: enteredStreet,
     postcode: enteredPostcode,
-    formIsValid
+    validDeliveryDetails: formIsValid
   }
-  // console.log(orderDelivery);
 
   props.onSaveDeliveryData(orderDelivery);
 
-  // const formSubmitHandler = (event) => {
-  //   event.preventDefault();
-  //   nameSubmitHandler();
-  //   numberSubmitHandler();
+  useImperativeHandle(ref, () => ({
+    formSubmitHandler() {
+      nameSubmitHandler();
+      numberSubmitHandler();
 
-  //   if (!formIsValid) {
-  //     return;
-  //   }
+      if (!formIsValid) {
+        return;
+      }
 
-  //   resetNameInput();
-  //   resetNumberInput();
-  // }
+      resetNameInput();
+      resetNumberInput();
+    }
+
+  }))
+
 
   const nameInputClasses = nameInputHasError ? `${classes["delivery__form-invalid"]}` : "";
   const numberInputClasses = numberInputHasError ? `${classes["delivery__form-invalid"]}` : "";
@@ -142,6 +144,6 @@ const OrderDeliveryForm = (props) => {
       {content}
     </React.Fragment>
   )
-}
+})
 
 export default OrderDeliveryForm;

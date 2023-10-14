@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 
 import Modal from "../Layout/Modal";
 import CartContext from "../store/cart.context";
@@ -10,16 +10,22 @@ const Checkout = (props) => {
   const cartCtx = useContext(CartContext);
   const checkoutTotal = `£${cartCtx.total.toFixed(2)}`;
 
+  const deliveryRef = useRef();
+
+  let deliveryData;
+
   const [deliveryDetails, setDeliveryDetails] = useState({});
   const [paymentDetails, setPaymentDetails] = useState({});
 
   const placeOrderHandler = (event) => {
     event.preventDefault();
+    deliveryRef.current.formSubmitHandler();
+
+    console.log(deliveryData.validDeliveryDetails);
   }
 
   const saveDeliveryDataHandler = (data) => {
-    const deliveryData = data;
-    console.log(deliveryData);
+    deliveryData = data;
   }
 
   return (
@@ -32,7 +38,7 @@ const Checkout = (props) => {
         </div>
         <div className={classes["checkout-section"]}>
           <div className={classes["checkout__title"]}>DELIVERY</div>
-          <OrderDeliveryForm onSaveDeliveryData={saveDeliveryDataHandler} />
+          <OrderDeliveryForm onSaveDeliveryData={saveDeliveryDataHandler} ref={deliveryRef} />
         </div>
         <div className={classes["checkout-section"]}>
           <div className={classes["checkout__title"]}>PAYMENT</div>
