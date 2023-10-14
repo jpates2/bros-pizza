@@ -1,4 +1,4 @@
-import { useContext, useState, useRef } from "react";
+import { useContext, useRef } from "react";
 
 import Modal from "../Layout/Modal";
 import CartContext from "../store/cart.context";
@@ -13,9 +13,6 @@ const Checkout = (props) => {
   const deliveryRef = useRef();
 
   let deliveryData;
-
-  const [deliveryDetails, setDeliveryDetails] = useState({});
-  const [paymentDetails, setPaymentDetails] = useState({});
 
   const placeOrderHandler = (event) => {
     event.preventDefault();
@@ -53,9 +50,3 @@ const Checkout = (props) => {
 }
 
 export default Checkout;
-
-
-export async function action({request, params}) {
-  const formData = await request.formData();
-
-}

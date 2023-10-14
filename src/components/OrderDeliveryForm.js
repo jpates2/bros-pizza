@@ -3,8 +3,6 @@ import classes from "./OrderDeliveryForm.module.css";
 import useInput from "../hooks/use-input";
 
 const OrderDeliveryForm = forwardRef((props, ref) => {
-
-
   const {
     value: enteredName,
     isValid: enteredNameIsValid,
@@ -87,6 +85,10 @@ const OrderDeliveryForm = forwardRef((props, ref) => {
     formSubmitHandler() {
       nameSubmitHandler();
       numberSubmitHandler();
+      emailSubmitHandler();
+      houseSubmitHandler();
+      streetSubmitHandler();
+      postcodeSubmitHandler();
 
       if (!formIsValid) {
         return;
@@ -94,6 +96,10 @@ const OrderDeliveryForm = forwardRef((props, ref) => {
 
       resetNameInput();
       resetNumberInput();
+      resetEmailInput();
+      resetHouseInput();
+      resetStreetInput();
+      resetPostcodeInput();
     }
 
   }))
