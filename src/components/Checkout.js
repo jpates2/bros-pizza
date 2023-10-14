@@ -46,7 +46,6 @@ const Checkout = (props) => {
     paymentData = data;
   }
 
-
   const submitOrderHandler = async () => {
     setIsSubmitting(true);
     await fetch("https://bros-pizza-2757a-default-rtdb.europe-west1.firebasedatabase.app/orders.json", {
@@ -68,8 +67,8 @@ const Checkout = (props) => {
     })
     setIsSubmitting(false);
     setSuccessOrderSubmit(true);
-    cartCtx.items = [];
-    cartCtx.total = 0;
+
+    cartCtx.clearCart();
   }
 
   const formContent = (
