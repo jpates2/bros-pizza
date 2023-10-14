@@ -89,11 +89,9 @@ const OrderDeliveryForm = forwardRef((props, ref) => {
       houseSubmitHandler();
       streetSubmitHandler();
       postcodeSubmitHandler();
+    },
 
-      if (!formIsValid) {
-        return;
-      }
-
+    formResetHandler() {
       resetNameInput();
       resetNumberInput();
       resetEmailInput();
@@ -101,7 +99,6 @@ const OrderDeliveryForm = forwardRef((props, ref) => {
       resetStreetInput();
       resetPostcodeInput();
     }
-
   }))
 
 

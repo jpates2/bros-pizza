@@ -30,6 +30,14 @@
   padding: 1px 8px;
 }
 
+.payment__form-control input:focus {
+  outline: none;
+}
+
+.payment__form-invalid {
+  border-color: #DE1A1A;
+}
+
 @media (min-width: 800px) {
   .payment__form {
     max-width: 32rem;

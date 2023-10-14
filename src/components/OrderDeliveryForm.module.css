@@ -30,6 +30,10 @@
   padding: 1px 8px;
 }
 
+.delivery__form-control input:focus {
+  outline: none;
+}
+
 .delivery__form-invalid {
   border-color: #DE1A1A;
 }

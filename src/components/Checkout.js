@@ -11,18 +11,30 @@ const Checkout = (props) => {
   const checkoutTotal = `£${cartCtx.total.toFixed(2)}`;
 
   const deliveryRef = useRef();
+  const paymentRef = useRef();
 
   let deliveryData;
+  let paymentData;
 
   const placeOrderHandler = (event) => {
     event.preventDefault();
     deliveryRef.current.formSubmitHandler();
+    paymentRef.current.formSubmitHandler();
 
-    console.log(deliveryData.validDeliveryDetails);
+    if (!deliveryData.validDeliveryDetails || !paymentData.validPaymentDetails) {
+      return;
+    }
+
+    deliveryRef.current.formResetHandler();
+    paymentRef.current.formResetHandler();
   }
 
   const saveDeliveryDataHandler = (data) => {
     deliveryData = data;
+  }
+
+  const savePaymentDataHandler = (data) => {
+    paymentData = data;
   }
 
   return (
@@ -39,7 +51,7 @@ const Checkout = (props) => {
         </div>
         <div className={classes["checkout-section"]}>
           <div className={classes["checkout__title"]}>PAYMENT</div>
-          <OrderPaymentForm />
+          <OrderPaymentForm onSavePaymentData={savePaymentDataHandler} ref={paymentRef} />
         </div>
         <form onSubmit={placeOrderHandler}>
           <button className={classes["checkout__button"]}>PLACE ORDER</button>
