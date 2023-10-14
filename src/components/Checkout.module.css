@@ -47,6 +47,19 @@
   transition: scale 0.5s;
   cursor: pointer;
 }
+.checkout__error {
+  color: red;
+  margin-top: 1rem;
+}
+
+.checkout-response-text {
+  font-size: 2rem;
+}
+
+.checkout__img {
+  height: 8rem;
+  margin-bottom: 2rem;
+}
 
 @media (min-width: 800px) {
   .checkout__title-main {
@@ -55,5 +68,9 @@
 
   .checkout__title {
     font-size: 2rem;
+  }
+
+  .checkout__img {
+    height: 12rem;
   }
 }

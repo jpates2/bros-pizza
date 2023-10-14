@@ -86,7 +86,7 @@ const BookingForm = () => {
       return;
     }
 
-    submitOrderHandler();
+    submitBookingHandler();
     resetNameInput();
     resetNumberInput();
     resetEmailInput();
@@ -96,7 +96,7 @@ const BookingForm = () => {
     setFormSubmit(false);
   }
 
-  const submitOrderHandler = async () => {
+  const submitBookingHandler = async () => {
     setIsSubmitting(true);
     await fetch("https://bros-pizza-2757a-default-rtdb.europe-west1.firebasedatabase.app/bookings.json", {
       method: "POST",
