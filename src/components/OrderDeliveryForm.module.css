@@ -30,6 +30,10 @@
   padding: 1px 8px;
 }
 
+.delivery__form-invalid {
+  border-color: #DE1A1A;
+}
+
 @media (min-width: 800px) {
   .delivery__form {
     max-width: 32rem;

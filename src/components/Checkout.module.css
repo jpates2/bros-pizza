@@ -27,6 +27,27 @@
   margin-bottom: 3rem;
 }
 
+.checkout__button {
+  all: unset;
+  background-color: #DE1A1A;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 40px;
+  margin-bottom: 1rem;
+}
+
+.checkout__button a {
+  color: white;
+  text-decoration: none;
+}
+
+.checkout__button:hover {
+  scale: 1.05;
+  transition: scale 0.5s;
+  cursor: pointer;
+}
+
 @media (min-width: 800px) {
   .checkout__title-main {
     font-size: 3rem;
