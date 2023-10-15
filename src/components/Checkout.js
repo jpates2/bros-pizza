@@ -1,5 +1,4 @@
 import { useContext, useRef, useState } from "react";
-import { redirect } from "react-router-dom";
 
 import Modal from "../Layout/Modal";
 import CartContext from "../store/cart.context";
