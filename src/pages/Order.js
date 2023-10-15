@@ -5,6 +5,7 @@ import OrderMenu from "../components/OrderMenu";
 import CartProvider from "../store/CartProvider";
 import Checkout from "../components/Checkout";
 import ScrollToTop from "../Layout/ScrollToTop";
+import Footer from "../Layout/Footer";
 
 function OrderPage() {
   const [checkoutIsShown, setCheckoutIsShown] = useState(false);
@@ -24,6 +25,7 @@ function OrderPage() {
       <OrderNav />
       <OrderSummary onShowCheckout={showCheckoutHandler} />
       <OrderMenu />
+      <Footer />
     </CartProvider>
   )
 }
