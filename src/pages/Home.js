@@ -6,10 +6,12 @@ import WhoSection from "../Who/WhoSection";
 import WhereSection from "../Where/WhereSection";
 import BookingSection from "../Bookings/BookingSection";
 import Footer from "../Layout/Footer";
+import ScrollToTop from "../Layout/ScrollToTop";
 
 function HomePage() {
   return (
     <React.Fragment>
+      <ScrollToTop />
       <Header />
       <main>
         <Nav />
