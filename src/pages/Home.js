@@ -5,6 +5,7 @@ import Menu from "../components/Menu";
 import WhoSection from "../Who/WhoSection";
 import WhereSection from "../Where/WhereSection";
 import BookingSection from "../Bookings/BookingSection";
+import Footer from "../Layout/Footer";
 
 function HomePage() {
   return (
@@ -17,6 +18,7 @@ function HomePage() {
         <WhereSection />
         <BookingSection />
       </main>
+      <Footer />
     </React.Fragment>
   );
 }
