@@ -2,7 +2,6 @@
   list-style: none;
   display: flex;
   position: relative;
-  font-family: "Lilita One";
 }
 .menu__item-text {
   text-align: left;

@@ -1,9 +1,7 @@
 .order-menu__item-container {
   list-style: none;
   display: flex;
-  /* align-items: center; */
   position: relative;
-  font-family: "Lilita One";
   margin-bottom: 1rem;
 }
 
@@ -28,9 +26,6 @@
 }
 
 .order-menu__item-price {
-  /* position: absolute;
-  top: 0;
-  right: 0; */
   color: #DE1A1A;
   font-size: 1.5rem;
 }
